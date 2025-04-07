@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if prof %}
+<h2>Инженерные тренажеры</h2>
+<img src="{{ url_for('static', filename='img/engener.png') }}" alt="..." width="700" height="450">
+
+{% else %}
+    <img src="{{ url_for('static', filename='img/science.png') }}" alt="..."  width="700" height="450">
+    {% endif %}
+{% endblock %}
