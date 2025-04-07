@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="centered">
+    <h2>{{ member.name }} {{ member.surname }}</h2>
+    <img src="{{ member.src}}">
+    <h3>{{ member.profession|sort|join(", ") }}</h3>
+</div>
+{% endblock %}
