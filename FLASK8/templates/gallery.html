@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>Красная планета</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Миссия Колонизация Марса</h1>
+    <p class="subtitle">И на Марсе будут яблони цвести!</p>
+
+    <h2>Пейзажи Марса</h2>
+    <div class="gallery">
+        {% for img in images %}
+            <div class="image-block">
+                <img src="{{ url_for('static', filename='uploads/' ~ img) }}" alt="Марсианский пейзаж">
+            </div>
+        {% else %}
+            <p class="empty">Пока нет изображений</p>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <h3>Добавить картинку</h3>
+    <form method="POST" enctype="multipart/form-data" class="upload-form">
+        <input type="file" name="file">
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

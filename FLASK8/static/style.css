@@ -1,0 +1,29 @@
+h1 {
+    text-align: center
+    margin-left: 0;
+    color: black;
+}
+
+h2 {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: #444;
+}
+
+h3 {
+    margin-left: 20px;
+    color: #555;
+}
+
+.image-block img {
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0;
+    border: 1px solid #aaa;
+}
+
+.subtitle {
+    margin-left: 20px;
+    color: #888;
+}
