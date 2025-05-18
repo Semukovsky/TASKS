@@ -1,10 +1,10 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for
-
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = os.path.join('static', 'uploads')
+UPLOAD_FOLDER = os.path.join('FLASK8', 'static', 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -13,9 +13,9 @@ def gallery():
     if request.method == 'POST':
         file = request.files.get('file')
         if file and file.filename:
-            filename = file.filename.replace(" ", "_")
-            path_to_save = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(path_to_save)
+            name = secure_filename(file.filename)
+            fpath = os.path.join(app.config['UPLOAD_FOLDER'], name)
+            file.save(fpath)
             return redirect(url_for('gallery'))
 
     images = os.listdir(app.config['UPLOAD_FOLDER'])
